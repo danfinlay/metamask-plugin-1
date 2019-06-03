@@ -63,6 +63,7 @@ const backEndMetaMetricsEvent = require('./lib/backend-metametrics')
 const createCounterfactualMiddleware = require('./plugins/counterfactualMiddleware')
 const CounterfactualController = require('./plugins/counterfactual')
 const providerFromEngine = require('eth-json-rpc-middleware/providerFromEngine')
+const ethers = require('ethers')
 
 module.exports = class MetamaskController extends EventEmitter {
 
@@ -291,7 +292,7 @@ module.exports = class MetamaskController extends EventEmitter {
     const engine = this.setupProviderEngine('counterfactual.eth')
     const cfProvider = providerFromEngine(engine)
 
-    var testProvider = new window.ethers.providers.Web3Provider(cfProvider)
+    var testProvider = new ethers.providers.Web3Provider(cfProvider)
     const signer = testProvider.getSigner()
     signer.getAddress().then(addr => {
       console.log(addr)
