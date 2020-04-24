@@ -2,19 +2,13 @@
 <html>
   <head>
     <title>Test site!</title>
-    <script>
-window.addEventListener('load', () => {
-  testButton.addEventListener('click', async () => {
-    console.log('clicked', cProvider)
-    const { E, getBootstrap } = cProvider
-    const a = await E(getBootstrap()).getControllers();
-    console.dir(`a: ${JSON.stringify(a)}`)
-  })
-})
-    </script>
+    <script src="./bundle.js"></script>
   </head>
   <body>
     <h1>Welcome!</h1>
-    <button id="testButton">Test!</button>
+    <button id="getControllersButton">Get Controllers!</button>
+    <button id="addNameControllerButton">Add Name Controller!</button>
+    <button id="addHelloControllerButton">Add Hello Controller!</button>
+    <button id="sayHelloButton">Say Hello!</button>
   </body>
 </html>

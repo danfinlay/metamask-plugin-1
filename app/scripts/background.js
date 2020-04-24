@@ -9,8 +9,7 @@ import { lockdown } from "ses"
 lockdown();
 
 import { createCore } from './core'
-const hardcore = createCore()
-console.log('core is ', hardcore)
+const makeApi = createCore()
 
 import {
   ENVIRONMENT_TYPE_POPUP,
@@ -41,21 +40,21 @@ function connectRemote (remotePort) {
 function setupUntrustedCommunication (port) {
   const portStream = new PortStream(port)
   portStream.pipe(createLogStream('incomingToBackground'))
-  const { abort } = makeCapTpFromStream('untrusted', portStream, hardcore);
+  const { abort } = makeCapTpFromStream('untrusted', portStream, makeApi());
   portStream.on('end', () => abort())
 }
 
 function setupTrustedCommunication (port) {
   const portStream = new PortStream(port)
   portStream.pipe(createLogStream('incomingToBackground'))
-  const { abort } = makeCapTpFromStream('trusted', portStream, hardcore);
+  const { abort } = makeCapTpFromStream('trusted', portStream, makeApi());
   portStream.on('end', () => abort())
 }
 
 // communication with page or other extension
 function connectExternal (remotePort) {
   const portStream = new PortStream(remotePort)
-  const { abort } = makeCapTpFromStream('external', portStream, hardcore);
+  const { abort } = makeCapTpFromStream('external', portStream, makeApi());
 
   // Clean up references to remote pending functions
   portStream.on('end', () => abort())

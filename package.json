@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "3box": "^1.10.2",
+    "@babel/helper-validator-identifier": "^7.9.5",
     "@babel/runtime": "^7.5.5",
     "@download/blockies": "^1.0.3",
     "@fortawesome/fontawesome-free": "^5.13.0",
@@ -93,6 +94,7 @@
     "currency-formatter": "^1.4.2",
     "d3": "^5.15.0",
     "debounce-stream": "^2.0.0",
+    "deep-clone": "^3.0.3",
     "deep-freeze-strict": "1.1.1",
     "dnode": "^1.2.2",
     "end-of-stream": "^1.4.4",
@@ -290,8 +292,7 @@
     "ttest": "^2.1.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.11.1",
-    "webpack": "^4.41.6"
+    "watchify": "^3.11.1"
   },
   "engines": {
     "node": "^11.0.0",
