@@ -6,10 +6,13 @@ const createLogStream = require('./lib/create-log-stream')
 import ObjectMultiplex from 'obj-multiplex'
 
 import { lockdown } from "ses"
-lockdown();
+lockdown({
+  noTameMath: true,
+});
 
+const controllers = require('./controllers')
 import { createCore } from './core'
-const makeApi = createCore()
+const makeApi = createCore({ controllers })
 
 import {
   ENVIRONMENT_TYPE_POPUP,

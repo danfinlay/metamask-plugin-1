@@ -14,7 +14,22 @@
   },
   "devDependencies": {
     "@babel/parser": "^7.9.4",
+    "brfs": "^2.0.2",
     "browserify": "^16.5.1",
     "watchify": "^3.11.1"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "brfs",
+        "babelify",
+        {
+          "presets": [
+            "@agoric/transform-eventual-send",
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
   }
 }
