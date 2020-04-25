@@ -75,10 +75,4 @@ window.addEventListener('load', () => {
     await E(getBootstrap()).addRootController('action-view', actionView)
   }
 
-  addNicknameViewButton.addEventListener('click', addNicknameView)
-  async function addNicknameView () {
-    const { E, getBootstrap } = cProvider
-    await E(E(getBootstrap()).getController('action-view')).registerWalletView('nickname', nicknameView)
-  }
-
 })

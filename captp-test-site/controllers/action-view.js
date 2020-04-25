@@ -43,18 +43,7 @@ ${render.toString()}`)
 
   render: async () => {
     return `
-    <!doctype html>
-    <html>
-    <head><style>
-    .plugin-el {
-      display-type: inline-block;
-      border: 2px solid #CCC;
-    }
-    </style</head>
-    <body>
       ${renderElements()}
-    </body>
-    </html>
     `
   }
 })
